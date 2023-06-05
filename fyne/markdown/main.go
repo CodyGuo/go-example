@@ -77,12 +77,12 @@ func (app *config) makeUI(win fyne.Window) (*fynex.ShortcutEntry, *widget.RichTe
 	return edit, preview
 }
 
-func (app *config) setWinTitle(win fyne.Window, change bool) {
+func (app *config) setWinTitle(win fyne.Window, changed bool) {
 	if app.CurrentFile == nil {
 		return
 	}
 	str := " - "
-	if change {
+	if changed {
 		str = " - *"
 	}
 	win.SetTitle(app.Title + str + app.CurrentFile.Name())
