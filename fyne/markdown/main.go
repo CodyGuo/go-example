@@ -28,6 +28,7 @@ var cfg config
 
 func main() {
 	a := app.New()
+	a.Settings().SetTheme(&customTheme{})
 
 	cfg.Title = "Markdown"
 	win := a.NewWindow(cfg.Title)
@@ -35,8 +36,8 @@ func main() {
 	edit, preview := cfg.makeUI(win)
 	cfg.createMenuItems(win)
 
-	win.SetContent(container.NewHSplit(edit, preview))
-	win.Resize(fyne.NewSize(800, 500))
+	win.SetContent(container.NewHSplit(preview, edit))
+	win.Resize(fyne.NewSize(1024, 800))
 	win.CenterOnScreen()
 
 	win.ShowAndRun()
@@ -49,6 +50,7 @@ func (app *config) makeUI(win fyne.Window) (*fynex.ShortcutEntry, *widget.RichTe
 	app.EditWidget = edit
 	app.PreviewWidget = preview
 
+	edit.FocusGained()
 	edit.ShortcutFunc = func(shortcut fyne.Shortcut) {
 		v, ok := shortcut.(*desktop.CustomShortcut)
 		if !ok {
