@@ -181,7 +181,7 @@ func (app *config) SaveAsFunc(win fyne.Window) func() {
 
 			defer write.Close()
 
-			if !strings.HasSuffix(strings.ToLower(write.URI().Name()), ".md") {
+			if !filter.Matches(write.URI()) {
 				dialog.ShowInformation("Error", "Please name your file with a .md extension!", win)
 				return
 			}
