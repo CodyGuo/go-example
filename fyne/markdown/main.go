@@ -8,7 +8,7 @@ import (
 	"fyne.io/fyne/v2/driver/desktop"
 	"fyne.io/fyne/v2/storage"
 	"fyne.io/fyne/v2/widget"
-	"github.com/codyguo/go-example/pkg/fynex"
+	"github.com/codyguo/go-example/fyne/pkg/fynex"
 	"io"
 	"strings"
 )

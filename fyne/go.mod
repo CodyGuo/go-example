@@ -1,4 +1,4 @@
-module github.com/codyguo/go-example
+module github.com/codyguo/go-example/fyne
 
 go 1.20
 
